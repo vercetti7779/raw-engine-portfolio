@@ -24,12 +24,14 @@ export default function Hero() {
 
         <div className="mt-12 flex justify-center gap-4 flex-wrap">
 
-          <a
-            href="#gallery"
-            className="rounded-full bg-white px-8 py-4 text-black font-semibold transition hover:scale-105"
-          >
-            View Portfolio
-          </a>
+         <button
+  onClick={() =>
+    document.getElementById("gallery")?.scrollIntoView({ behavior: "smooth" })
+  }
+  className="rounded-full bg-white px-8 py-4 font-semibold text-black"
+>
+  View Portfolio
+</button>
 
           <a
             href="https://instagram.com/rawengine.in"
