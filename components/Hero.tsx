@@ -24,14 +24,19 @@ export default function Hero() {
 
         <div className="mt-12 flex justify-center gap-4 flex-wrap">
 
-         <button
-  onClick={() =>
-    document.getElementById("gallery")?.scrollIntoView({ behavior: "smooth" })
-  }
-  className="rounded-full bg-white px-8 py-4 font-semibold text-black"
+        <a
+  href="#gallery"
+  style={{
+    background: "#ffffff",
+    color: "#000000",
+    padding: "16px 32px",
+    borderRadius: "9999px",
+    fontWeight: "700",
+    display: "inline-block",
+  }}
 >
   View Portfolio
-</button>
+</a>
 
           <a
             href="https://instagram.com/rawengine.in"
