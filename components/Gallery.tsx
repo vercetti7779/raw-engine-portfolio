@@ -17,6 +17,8 @@ const portfolio: { type: "image" | "video"; file: string }[] = [
   { type: "image", file: "p11.jpeg" },
   { type: "image", file: "p2.jpeg" },
   { type: "image", file: "p13.png" },
+  { type: "image", file: "p14.jpg" },
+  { type: "image", file: "p15.jpg" },
 
   { type: "video", file: "v1.mp4" },
   { type: "video", file: "v2.mp4" },
