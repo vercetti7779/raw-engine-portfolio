@@ -21,19 +21,22 @@ const portfolio: { type: "image" | "video"; file: string }[] = [
   { type: "image", file: "p15.jpg" },
   { type: "image", file: "p16.jpg" },
   { type: "image", file: "p17.jpg" },
-
   { type: "video", file: "v1.mp4" },
   { type: "video", file: "v2.mp4" },
 ];
 
 export default function Gallery() {
-  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [selectedMedia, setSelectedMedia] = useState<{
+    type: "image" | "video";
+    file: string;
+  } | null>(null);
+
   const [filter, setFilter] = useState<"all" | "image" | "video">("all");
 
   const filteredPortfolio =
-  filter === "all"
-    ? portfolio
-    : portfolio.filter((item) => item.type === filter);
+    filter === "all"
+      ? portfolio
+      : portfolio.filter((item) => item.type === filter);
 
   return (
     <>
@@ -52,43 +55,37 @@ export default function Gallery() {
         </div>
 
         <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
-
           {filteredPortfolio.map((item) => (
-  <div
-    key={item.file}
-    onClick={() => {
-      if (item.type === "image") {
-        setSelectedImage(item.file);
-      }
-    }}
-    className="overflow-hidden rounded-2xl bg-neutral-900 break-inside-avoid group cursor-pointer"
-  >
-    {item.type === "image" ? (
-      <img
-        src={`/works/${item.file}`}
-        alt={item.file}
-        className="w-full transition duration-500 group-hover:scale-105"
-      />
-    ) : (
-      <video
-        src={`/works/${item.file}`}
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="metadata"
-        className="w-full transition duration-500 group-hover:scale-105"
-      />
-    )}
-  </div>
-))}
-
+            <div
+              key={item.file}
+              onClick={() => setSelectedMedia(item)}
+              className="overflow-hidden rounded-2xl bg-neutral-900 break-inside-avoid group cursor-pointer"
+            >
+              {item.type === "image" ? (
+                <img
+                  src={`/works/${item.file}`}
+                  alt={item.file}
+                  className="w-full transition duration-500 group-hover:scale-105"
+                />
+              ) : (
+                <video
+                  src={`/works/${item.file}`}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload="metadata"
+                  className="w-full transition duration-500 group-hover:scale-105"
+                />
+              )}
+            </div>
+          ))}
         </div>
       </section>
 
       <Lightbox
-        image={selectedImage}
-        onClose={() => setSelectedImage(null)}
+        media={selectedMedia}
+        onClose={() => setSelectedMedia(null)}
       />
     </>
   );
