@@ -9,9 +9,12 @@ export default function Home() {
     <main className="bg-black text-white">
       <Navbar />
       <Hero />
-      <Gallery />
-      <About />
-      <Contact />
+
+      <div className="relative z-10 bg-transparent backdrop-blur-xl">
+  <Gallery />
+  <About />
+  <Contact />
+   </div>
     </main>
   );
 }

@@ -6,7 +6,7 @@ export default function Contact() {
       id="contact"
       className="max-w-6xl mx-auto px-6 py-32 text-center"
     >
-      <p className="uppercase tracking-[0.4em] text-gray-500 text-sm">
+      <p className="uppercase tracking-[0.4em] text-gray-200 text-sm">
         Contact
       </p>
 
