@@ -5,6 +5,8 @@ import Lightbox from "./Lightbox";
 
 const portfolio: { type: "image" | "video"; file: string }[] = [
   { type: "image", file: "p1.jpeg" },
+  { type: "image", file: "p19.jpg" },
+  { type: "image", file: "p20.png" },
   { type: "image", file: "p5.jpeg" },
   { type: "image", file: "p3.jpeg" },
   { type: "image", file: "p4.jpeg" },
@@ -14,7 +16,6 @@ const portfolio: { type: "image" | "video"; file: string }[] = [
   { type: "image", file: "p8.png" },
   { type: "image", file: "p9.jpeg" },
   { type: "image", file: "p10.png" },
-  { type: "image", file: "p11.jpeg" },
   { type: "image", file: "p2.jpeg" },
   { type: "image", file: "p13.png" },
   { type: "image", file: "p14.jpg" },
@@ -23,6 +24,7 @@ const portfolio: { type: "image" | "video"; file: string }[] = [
   { type: "image", file: "p17.jpg" },
   { type: "video", file: "v1.mp4" },
   { type: "video", file: "v2.mp4" },
+  { type: "image", file: "p18.jpg" },
 ];
 
 export default function Gallery() {
