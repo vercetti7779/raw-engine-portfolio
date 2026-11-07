@@ -4,9 +4,12 @@ import { useState } from "react";
 import Lightbox from "./Lightbox";
 
 const portfolio: { type: "image" | "video"; file: string }[] = [
-  { type: "image", file: "p1.jpeg" },
+  { type: "image", file: "p23.png" },
   { type: "image", file: "p19.jpg" },
+  { type: "image", file: "p1.jpeg" },
   { type: "image", file: "p20.png" },
+  { type: "image", file: "p21.png" },
+  { type: "image", file: "p22.png" },
   { type: "image", file: "p5.jpeg" },
   { type: "image", file: "p3.jpeg" },
   { type: "image", file: "p4.jpeg" },
