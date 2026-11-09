@@ -2,31 +2,34 @@
 
 import { useState } from "react";
 import Lightbox from "./Lightbox";
-
+import Masonry from "react-masonry-css";
 const portfolio: { type: "image" | "video"; file: string }[] = [
   { type: "image", file: "p23.png" },
   { type: "image", file: "p19.jpg" },
   { type: "image", file: "p1.jpeg" },
-  { type: "image", file: "p20.png" },
-  { type: "image", file: "p21.png" },
   { type: "image", file: "p22.png" },
+  { type: "image", file: "p12.jpeg" },
+  { type: "video", file: "v2.mp4" },
+  { type: "image", file: "p21.png" },
+  { type: "image", file: "p20.png" },
   { type: "image", file: "p5.jpeg" },
   { type: "image", file: "p3.jpeg" },
+  { type: "video", file: "v3.mp4" },
   { type: "image", file: "p4.jpeg" },
-  { type: "image", file: "p12.jpeg" },
   { type: "image", file: "p6.png" },
   { type: "image", file: "p7.png" },
+  { type: "video", file: "v1.mp4" },
+  { type: "image", file: "p25.png" },
   { type: "image", file: "p8.png" },
   { type: "image", file: "p9.jpeg" },
   { type: "image", file: "p10.png" },
   { type: "image", file: "p2.jpeg" },
   { type: "image", file: "p13.png" },
+  { type: "image", file: "p24.png" },
   { type: "image", file: "p14.jpg" },
   { type: "image", file: "p15.jpg" },
   { type: "image", file: "p16.jpg" },
   { type: "image", file: "p17.jpg" },
-  { type: "video", file: "v1.mp4" },
-  { type: "video", file: "v2.mp4" },
   { type: "image", file: "p18.jpg" },
 ];
 
@@ -42,6 +45,13 @@ export default function Gallery() {
     filter === "all"
       ? portfolio
       : portfolio.filter((item) => item.type === filter);
+
+      const breakpointColumns = {
+  default: 3,
+  1024: 3,
+  768: 2,
+  640: 2,
+};
 
   return (
     <>
@@ -59,13 +69,16 @@ export default function Gallery() {
           </h2>
         </div>
 
-        <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
-          {filteredPortfolio.map((item) => (
+        <Masonry
+  breakpointCols={breakpointColumns}
+  className="flex w-auto -ml-6"
+  columnClassName="pl-6 bg-clip-padding"
+>
+  {filteredPortfolio.map((item) => (
             <div
               key={item.file}
               onClick={() => setSelectedMedia(item)}
-              className="overflow-hidden rounded-2xl bg-neutral-900 break-inside-avoid group cursor-pointer"
-            >
+className="mb-6 overflow-hidden rounded-2xl bg-neutral-900 group cursor-pointer"            >
               {item.type === "image" ? (
                 <img
                   src={`/works/${item.file}`}
@@ -85,7 +98,7 @@ export default function Gallery() {
               )}
             </div>
           ))}
-        </div>
+        </Masonry>
       </section>
 
       <Lightbox
